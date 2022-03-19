@@ -17,7 +17,6 @@ public class ServicePublishImpl implements ServicePublish{
 	String name;
 	String number;
 	String roomType, roomTypeName;
-	String location;
 	Integer noOfDays = 0;
 	Double cost, totalCost;
 	String checkInDate;
@@ -33,7 +32,7 @@ public class ServicePublishImpl implements ServicePublish{
 		
 		if(accept.equals("N") || accept.equals("n")) {
 			System.out.println(" ");
-			System.out.println("Okay let's try again...");
+			System.out.println("Thank you & Goodbye!...");
 			System.out.println(" ");
 			basicData();
 		}
@@ -43,7 +42,7 @@ public class ServicePublishImpl implements ServicePublish{
 			bookingID = rand.nextInt(99999);
 			System.out.println("Your booking has been confirmed. Your booking ID is " + String.format("%05d", bookingID) +  " Thank you!...");
 			System.out.println(" ");
-			//recieptPrinter();
+			recieptPrinter();
 		}
 		return "+++++++++++++++++++++++++++++++++++++";
        
@@ -228,135 +227,65 @@ public class ServicePublishImpl implements ServicePublish{
       } catch (Exception ex) { }
 	}
 	
-	/*public void recieptPrinter() {
+	public void recieptPrinter() {
 		try {
-			PrintStream pw = new PrintStream(new File("D:/Downloads/output.txt"));
-			if(packageType.equals("Platinum") || packageType.equals("platinum")) {			
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println("");
+			PrintStream pw = new PrintStream(new File("C:/Users/Adeesha/Desktop/bookingReceipt.txt"));
+			if(roomType.equalsIgnoreCase("A")) {				
+				pw.println();
 				pw.println("=====================================");
 				pw.println("        Booking Receipt   ");
 				pw.println("=====================================");
 				pw.println(" ");
-				pw.println("Name: " + name);
-				pw.println("Contact No: " + number);
-				pw.println("Date: " + date);
-				pw.println("Venue: " + location);
+				pw.println("Name : 			" + name );
+				pw.println("Contact No : 		" + number );
+				pw.println("Room Type : 		" + roomTypeName);
+				pw.println("Check in Date : 	" + checkInDate );
+				pw.println("No of booked days : 	" + noOfDays );
+				pw.println("Room Cost: 		16,000 LKR");
+				pw.println("Total Cost: 		" + totalCost+"0 LKR");
 				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println(" ");
-				pw.println("Service Type : Photography Service");
-				pw.println("Package: " + packageType );
-				pw.println("Total: " + cost);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println("");
+				pw.println("=====================================");
+				System.out.println("The Receipt has been printed");
+				
 			} 
-			else if(packageType.equals("Gold") || packageType.equals("gold")) {
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println("");
+			else if(roomType.equalsIgnoreCase("B")) {
+				pw.println(" ");
 				pw.println("=====================================");
 				pw.println("        Booking Receipt   ");
 				pw.println("=====================================");
 				pw.println(" ");
-				pw.println("Name: " + name);
-				pw.println("Contact No: " + number);
-				pw.println("Date: " + date);
-				pw.println("Venue: " + location);
+				pw.println("Name : 			" + name );
+				pw.println("Contact No : 		" + number );
+				pw.println("Room Type : 		" + roomTypeName);
+				pw.println("Check in Date : 	" + checkInDate );
+				pw.println("No of booked days : 	" + noOfDays );
+				pw.println("Room Cost: 		20,000 LKR");
+				pw.println("Total Cost: 		" + totalCost+"0 LKR");
 				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println(" ");
-				pw.println("Service Type : Photography Service");
-				pw.println("Package: " + packageType );
-				pw.println("Total: " + cost);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
+				pw.println("=====================================");
 				pw.println("");
+				System.out.println("The Receipt has been printed");
 			} 
-			else if(packageType.equals("Silver") || packageType.equals("gold")) {
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println("");
+			else if(roomType.equalsIgnoreCase("C")) {
+				pw.println(" ");
 				pw.println("=====================================");
 				pw.println("        Booking Receipt   ");
 				pw.println("=====================================");
 				pw.println(" ");
-				pw.println("Name: " + name);
-				pw.println("Contact No: " + number);
-				pw.println("Date: " + date);
-				pw.println("Venue: " + location);
+				pw.println("Name : 				" + name );
+				pw.println("Contact No : 		" + number );
+				pw.println("Room Type : 		" + roomTypeName);
+				pw.println("Check in Date : 	" + checkInDate );
+				pw.println("No of booked days : 	" + noOfDays );
+				pw.println("Room Cost: 		32,000 LKR");
+				pw.println("Total Cost: 		" + totalCost+"0 LKR");
 				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println(" ");
-				pw.println("Service Type : Photography Service");
-				pw.println("Package: " + packageType );
-				pw.println("Total: " + cost);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
+				pw.println("=====================================");
 				pw.println("");
+				System.out.println("The Receipt has been printed");
 			} 
-			else if(packageType.equals("A") || packageType.equals("a")) {
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println("");
-				pw.println("=====================================");
-				pw.println("        Booking Receipt   ");
-				pw.println("=====================================");
-				pw.println(" ");
-				pw.println("Name: " + name);
-				pw.println("Contact No: " + number);
-				pw.println("Date: " + date);
-				pw.println("Venue: " + location);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println(" ");
-				pw.println("Service Type : Photography Service");
-				pw.println("Package: " + packageType );
-				pw.println("Total: " + cost);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println("");
-			} 
-			else if(packageType.equals("B") || packageType.equals("b")) {
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println("");
-				pw.println("=====================================");
-				pw.println("        Booking Receipt   ");
-				pw.println("=====================================");
-				pw.println(" ");
-				pw.println("Name: " + name);
-				pw.println("Contact No: " + number);
-				pw.println("Date: " + date);
-				pw.println("Venue: " + location);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println(" ");
-				pw.println("Service Type : Photography Service");
-				pw.println("Package: " + packageType );
-				pw.println("Total: " + cost);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println("");
-			} 
-			else if(packageType.equals("C") || packageType.equals("c")) {
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println("");
-				pw.println("=====================================");
-				pw.println("        Booking Receipt   ");
-				pw.println("=====================================");
-				pw.println(" ");
-				pw.println("Name: " + name);
-				pw.println("Contact No: " + number);
-				pw.println("Date: " + date);
-				pw.println("Venue: " + location);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println(" ");
-				pw.println("Service Type : Photography Service");
-				pw.println("Package: " + packageType );
-				pw.println("Total: " + cost);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++++++++++");
-				pw.println("");
-			} 
+		
+			
 			else {
 				pw.println("");
 			}	
@@ -365,6 +294,6 @@ public class ServicePublishImpl implements ServicePublish{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 
 }
