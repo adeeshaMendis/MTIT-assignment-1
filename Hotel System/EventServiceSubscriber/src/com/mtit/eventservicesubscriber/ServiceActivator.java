@@ -13,12 +13,12 @@ public class ServiceActivator implements BundleActivator {
 	public void start(BundleContext context) throws Exception {
 		serviceReference = context.getServiceReference(ServicePublish.class.getName());
 		ServicePublish servicePublish = (ServicePublish)context.getService(serviceReference);
-		System.out.println("Subscriber Service Started");
+		System.out.println("Client Signed in");
 		servicePublish.publishService();
 	}
 
 	public void stop(BundleContext context) throws Exception {
-		System.out.println("Subscriber Service Stop");
+		System.out.println("Clint Signed out");
 		context.ungetService(serviceReference);
 	}
 }
