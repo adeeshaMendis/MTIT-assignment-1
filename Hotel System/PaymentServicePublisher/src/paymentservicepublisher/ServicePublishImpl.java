@@ -14,8 +14,8 @@ public class ServicePublishImpl implements ServicePublish{
 	Scanner in = new Scanner(System.in);
 	BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 	
-	String name;
-	String number, email, amount;
+	String name, number, email;
+	String amount;
 	Integer bookingID;
 	String bankCard;
 	
@@ -54,10 +54,10 @@ public class ServicePublishImpl implements ServicePublish{
 		System.out.println("=====================================");
 		
 		System.out.println("Please enter your name :");
-		name = sc.next();
+		name = sc.nextLine();
 	
 		System.out.println("Please enter your email address :");
-		email = sc.next();
+		email = sc.nextLine();
 		
 		System.out.println("Please enter the booking ID : ");
 		bookingID = sc.nextInt();
@@ -132,7 +132,7 @@ public class ServicePublishImpl implements ServicePublish{
 			System.out.println("Customer email address:  " +email);
 			System.out.println("Booking ID : 	 	 " +bookingID);
 			System.out.println("Amount : 	  	 " +amount+".00 LKR");			
-			System.out.println("Payment done by the card " +bankCard);
+			System.out.println("Payment will be done by the card " +bankCard);
 			System.out.println();
 		}
 	}
