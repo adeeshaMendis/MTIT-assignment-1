@@ -48,7 +48,7 @@ public class ServicePublishImpl implements ServicePublish {
 			System.out.println(" ");
 			System.out.println("=====================================");
 			System.out.println("Please enter your name: ");
-			name = input.next();
+			name = input.nextLine();
 			
 			System.out.println("Hello " + name + ", Which kind of service do you need? ");
 			System.out.println("A) Dine-in \tB) Take Away or Delivery \tC) Buffet Catering");
@@ -66,7 +66,6 @@ public class ServicePublishImpl implements ServicePublish {
 				System.out.println("Package: " + packageType );
 				System.out.println("Quantity: "+quantity  );
 				System.out.println("Final Cost: " +cost+ "0 LKR");
-				System.out.println("Special requests: " + requests);
 				System.out.println(" ");
 				System.out.println("+++++++++++++++++++++++++++++");
 				
@@ -82,7 +81,6 @@ public class ServicePublishImpl implements ServicePublish {
 				System.out.println("Quantity: "+quantity  );
 				System.out.println("Take Away or Delivery: " + takeAwayOrDeliveryChoice );
 				System.out.println("Final Cost: " +cost+ "0 LKR");
-				System.out.println("Special requests: " + requests);
 				System.out.println(" ");
 				System.out.println("+++++++++++++++++++++++++++++");
 				
@@ -98,7 +96,6 @@ public class ServicePublishImpl implements ServicePublish {
 				System.out.println("Package: " + packageType );
 				System.out.println("Quantity: "+quantity  );
 				System.out.println("Final Cost: " +cost+ "0 LKR");
-				System.out.println("Special requests: " + requests);
 				System.out.println(" ");
 				System.out.println("+++++++++++++++++++++++++++++");
 				
@@ -121,6 +118,8 @@ public class ServicePublishImpl implements ServicePublish {
 			System.out.println("Enter the quantity: ");
 			quantity = input.nextInt();
 			
+
+			
 			if(packageType.equals("A") || packageType.equals("a")) {
 				packageType = "Budget";
 				cost = 700.00*quantity;
@@ -133,10 +132,7 @@ public class ServicePublishImpl implements ServicePublish {
 				packageType = "Full";
 				cost = 1300.00*quantity;
 			}
-			System.out.println("");
-			
-			System.out.println("Any special requests?");
-			requests = input.next();
+
 			
 			System.out.println("");
 		}
@@ -180,12 +176,7 @@ public class ServicePublishImpl implements ServicePublish {
 			}
 			
 			System.out.println("");
-
-			
-			System.out.println("Any special requests?");
-			requests = input.next();
-			
-			System.out.println("");				
+		
 		}
 		
 		public void takeAwayOrDelivery() {
@@ -240,19 +231,15 @@ public class ServicePublishImpl implements ServicePublish {
 			if(takeAwayOrDeliveryChoice.equals("T") || takeAwayOrDeliveryChoice.equals("t") ) 
 				{
 				takeAwayOrDeliveryChoice = "Take away";
-				System.out.println("Any special requests?");
-				requests = input.next();
 				System.out.println("We will parcel your order. Thank you!");
 				}
 			else if (takeAwayOrDeliveryChoice.equals("D") || takeAwayOrDeliveryChoice.equals("d"))
 			{
 				takeAwayOrDeliveryChoice = "Delivery";
 				System.out.println("Enter your address please");
-				address = input.next();
+				address = input.nextLine();
 				System.out.println("Enter your contact number");
-				contactNo = input.next();
-				System.out.println("Any special requests?");
-				requests = input.next();
+				contactNo = input.nextLine();
 				System.out.println("We will bring your food to your doorstep. Thank you!");
 			}
 						
