@@ -14,9 +14,9 @@ public class ServicePublishImpl implements ServicePublish {
 	Scanner input = new Scanner(System.in);
 	
 	
-	String name, mNumber, hallType, hallTypeName, indoorHallType, indoorHallTypeName, outdoorHallType, outdoorHallTypeName, packageType, packageType2, requests, duration;
-	String additionalInfo, eventType, eventTypeName, date;
-	Integer capacity,performers, bookingID ;
+	String name, mNumber, hallType, hallTypeName, indoorHallType, indoorHallTypeName, outdoorHallType, outdoorHallTypeName, requests;
+	String eventType, eventTypeName, date;
+	Integer capacity, bookingID;
 	Double cost;
 
 	@Override
@@ -38,7 +38,7 @@ public class ServicePublishImpl implements ServicePublish {
 			bookingID = rand.nextInt(99999);
 			System.out.println("Your booking has been confirmed. Your booking ID is " + String.format("%05d", bookingID) +  " Thank you!...");
 			System.out.println(" ");
-			//recieptPrinter();
+			recieptPrinter();
 		}
 	}
 	
@@ -102,7 +102,6 @@ public class ServicePublishImpl implements ServicePublish {
 			System.out.println("Final Cost for the hall: " + cost );
 			System.out.println("Special requests: " + requests);
 			System.out.println(" ");
-			System.out.println("Thank you for.");
 			System.out.println("+++++++++++++++++++++++++++++");		
 			System.out.println("");
 		} 
@@ -120,14 +119,13 @@ public class ServicePublishImpl implements ServicePublish {
 			System.out.println("Event Type: " + eventTypeName);
 			System.out.println("Date: " + date);
 			System.out.println("Type of the hall: " + hallTypeName);
-			System.out.println("Type of the indoor Hall: " + outdoorHallTypeName);
+			System.out.println("Type of the outdoor Hall: " + outdoorHallTypeName);
 			System.out.println(" ");
 			System.out.println("+++++++++++++++++++++++++++++");
 			System.out.println(" ");
 			System.out.println("Final Cost for the hall: " + cost );
 			System.out.println("Special requests: " + requests);
 			System.out.println(" ");
-			System.out.println("Thank you for.");
 			System.out.println("+++++++++++++++++++++++++++++");		
 			System.out.println("");
 			
@@ -138,89 +136,52 @@ public class ServicePublishImpl implements ServicePublish {
 		return;
 	}
 	
-	/*public void recieptPrinter() {
+	public void recieptPrinter() {
 		try {
-			PrintStream pw = new PrintStream(new File("D:/Downloads/output.txt"));
-			if(hireType.equals("A") || hireType.equals("a")) {			
-				pw.println("+++++++++++++++++++++++++++++");
+			PrintStream pw = new PrintStream(new File("C:/Users/Adeesha/Desktop/bookingReceiptHall.txt"));
+			if(hallType.equalsIgnoreCase("A")) {				
+				pw.println();
+				pw.println("=====================================");
+				pw.println("        Booking Receipt   ");
+				pw.println("=====================================");
 				pw.println(" ");
-				pw.println("Name: " + name);
-				pw.println("Mobile Number: " + mNumber);
-				pw.println("Event Catagory: " + eventType);
+				pw.println("Name : 			" + name );
+				pw.println("Contact No : 		" + mNumber );
+				pw.println("Event Type : 		" + eventTypeName);
 				pw.println("Date: " + date);
-				pw.println("Venue: " + venue);
+				pw.println("Type of the hall: " + hallTypeName);
+				pw.println("Type of the indoor Hall: " + indoorHallTypeName);
 				pw.println(" ");
 				pw.println("+++++++++++++++++++++++++++++");
-				pw.println(" ");
-				pw.println("Hiring type: DJ" );
-				pw.println("Package: " + packageType );
-				pw.println("Cost per hour: " + cost );
-				pw.println("Final Cost: " + (cost * hours));
+				pw.println("Final Cost for the hall: " + cost );
 				pw.println("Special requests: " + requests);
 				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++");
+				pw.println("+++++++++++++++++++++++++++++");		
 				pw.println("");
-			} 
-			else if(hireType.equals("B") || hireType.equals("b")) {
-				pw.println("+++++++++++++++++++++++++++++");
-				pw.println(" ");
-				pw.println("Name: " + name);
-				pw.println("Mobile Number: " + mNumber);
-				pw.println("Event Catagory: " + eventType);
-				pw.println("Date: " + date);
-				pw.println("Venue: " + venue);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++");
-				pw.println(" ");
-				pw.println("Hiring type: Live Band" );
-				pw.println("Package: " + packageType );
-				pw.println("Cost: " + cost );
-				pw.println("Special requests: " + requests);
-				pw.println(" ");
-				pw.println("+++++++++++++++++++++++++++++");
-				pw.println("");
-			} 
-			else if(hireType.equals("C") || hireType.equals("c")) {
-				if(packageType.equals("Choreograph") || packageType.equals("choreograph") && packageType2.equals("C") || packageType2.equals("c")) {
-					pw.println("+++++++++++++++++++++++++++++");
-					pw.println(" ");
-					pw.println("Name: " + name);
-					pw.println("Mobile Number: " + mNumber);
-					pw.println("Event Catagory: " + eventType);
-					pw.println("Date: " + date);
-					pw.println("Venue: " + venue);
-					pw.println(" ");
-					pw.println("+++++++++++++++++++++++++++++");
-					pw.println(" ");
-					pw.println("Hiring type: Performer Group" );
-					pw.println("Package: " + packageType +" "+  packageType2);
-					pw.println("Duration: " + duration );
-					pw.println("Additional requests: " + additionalInfo);
-					pw.println("A cost sheet would be sent as per the requirements");
-					pw.println(" ");
-					pw.println("+++++++++++++++++++++++++++++");	
-					pw.println("");
-				}
-				else {	
-					pw.println("+++++++++++++++++++++++++++++");
-					pw.println(" ");
-					pw.println("Name: " + name);
-					pw.println("Mobile Number: " + mNumber);
-					pw.println("Event Catagory: " + eventType);
-					pw.println("Date: " + date);
-					pw.println("Venue: " + venue);
-					pw.println(" ");
-					pw.println("+++++++++++++++++++++++++++++");
-					pw.println(" ");
-					pw.println("Hiring type: Performer Group" );
-					pw.println("Package: " + packageType +",  "+ "Type: " +" "+  packageType2);
-					pw.println("Cost: " + cost );
-					pw.println("Special requests: " + requests);
-					pw.println(" ");
-					pw.println("+++++++++++++++++++++++++++++");
+				System.out.println("The Receipt has been printed");
 				
-					pw.println("");}	
-			}
+			} 
+			else if(hallType.equalsIgnoreCase("B")) {
+				pw.println();
+				pw.println("=====================================");
+				pw.println("        Booking Receipt   ");
+				pw.println("=====================================");
+				pw.println(" ");
+				pw.println("Name : 			" + name );
+				pw.println("Contact No : 		" + mNumber );
+				pw.println("Event Type : 		" + eventTypeName);
+				pw.println("Date: " + date);
+				pw.println("Type of the hall: " + hallTypeName);
+				pw.println("Type of the outdoor Hall: " + outdoorHallTypeName);
+				pw.println(" ");
+				pw.println("+++++++++++++++++++++++++++++");
+				pw.println("Final Cost for the hall: " + cost );
+				pw.println("Special requests: " + requests);
+				pw.println(" ");
+				pw.println("+++++++++++++++++++++++++++++");		
+				pw.println("");
+				System.out.println("The Receipt has been printed");
+			} 
 			else {
 				pw.println("");
 			}	
@@ -229,7 +190,7 @@ public class ServicePublishImpl implements ServicePublish {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 	
 
 	public void indoorHall() {
